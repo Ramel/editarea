@@ -1,7 +1,5 @@
 # -*- coding: UTF-8 -*-
-# Copyright (C) 2007-2008 Juan David IBÁÑEZ PALOMAR <jdavid@itaapy.com>
-# Copyright (C) 2008 Nicolas DERAM <nicolas@itaapy.com>
-# Copyright (C) 2010 Armel FORTUN <armel@tchack.com>
+# Copyright (C) 2007-2008 Juan David Ibáñez Palomar <jdavid@itaapy.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,17 +15,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # Import from itools
-from itools.core import get_abspath
-from itools.core import get_version
+from itools.pkg import setup
 
-# Import from ikaaro
-from ikaaro.skins import register_skin
 
-from text import CSS
-
-# The version
-__version__ = get_version()
-
-# Register skin
-path = get_abspath('ui')
-register_skin('edit_area', path)
+if __name__ == '__main__':
+    setup()

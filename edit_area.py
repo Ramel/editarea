@@ -22,15 +22,12 @@
 # Import from itools
 from itools.xml import XMLParser
 from itools.gettext import MSG
-from itools.core import merge_dicts, get_abspath
+from itools.core import get_abspath
 from itools.datatypes import String
 from itools.web import get_context
 
 # Import from ikaaro
-from ikaaro.forms import Widget, stl_namespaces
-from ikaaro.forms import timestamp_widget
-from ikaaro.text_views import Text_Edit
-from ikaaro.file_views import File_Edit
+from ikaaro.autoform import Widget, stl_namespaces
 from ikaaro.skins import register_skin
 
 
@@ -68,7 +65,7 @@ class EAWidget(Widget):
     def get_namespace(self, datatype, value):
         context = get_context()
         # language
-        site_root = context.site_root
+        #site_root = context.site_root
         edit_area_languages = self.get_available_edit_area_languages(context)
         accept = context.accept_language
         current_language = accept.select_language(edit_area_languages)

@@ -15,8 +15,14 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from itools.core import merge_dicts
+from itools.datatypes import String
+
 from ikaaro.registry import register_resource_class
 from ikaaro.text import CSS as BaseCSS
+from ikaaro.text_views import Text_Edit
+from ikaaro.forms import timestamp_widget
+from ikaaro.file_views import File_Edit
 
 from edit_area import ea_widget
 
@@ -42,6 +48,7 @@ class CSS_Edit(Text_Edit):
 
 
 class CSS(BaseCSS):
+    
     edit = CSS_Edit()
 
 
@@ -49,4 +56,3 @@ class CSS(BaseCSS):
 # Overwrite class for 'text/css'
 # Maybe automatic
 register_resource_class(CSS)
-
