@@ -15,16 +15,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../edit_area.py:104
-msgid "Body"
-msgstr ""
-
-#: ../ui/edit_area/ea.xml.en:22
+#: ../ui/ea.xml.en:22
 msgctxt "noscript"
 msgid "(Javascript is deactivated or missing:"
 msgstr ""
 
-#: ../ui/edit_area/ea.xml.en:22
+#: ../edit_area.py:105
+msgid "Body"
+msgstr ""
+
+#: ../ui/ea.xml.en:22
 msgctxt "noscript"
 msgid "the EditArea Editor is unavailable.)"
 msgstr ""
