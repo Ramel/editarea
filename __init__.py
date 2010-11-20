@@ -30,4 +30,4 @@ __version__ = get_version()
 
 # Register skin
 path = get_abspath('ui')
-register_skin('edit_area', path)
+register_skin('editarea', path)

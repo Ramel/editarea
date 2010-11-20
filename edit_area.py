@@ -42,8 +42,8 @@ class EAWidget(Widget):
 
     #template = list(XMLParser("""${ea}""", stl_namespaces))
 
-    template = '/ui/edit_area/ea.xml'
-    scripts = ['/ui/edit_area/edit_area_full.js']
+    template = '/ui/editarea/ea.xml'
+    scripts = ['/ui/editarea/edit_area_full.js']
 
     # Configuration
     width = 610
