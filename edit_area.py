@@ -67,6 +67,7 @@ class EAWidget(Widget):
         handler = context.root.get_resource(self.ea_template)
         return handler.events
     """
+    """
     def get_prefix(self):
         context = get_context()
         here = context.resource.get_abspath()
@@ -77,7 +78,7 @@ class EAWidget(Widget):
          prefix = self.get_prefix()
          template = self.get_template()
          return stl(events=template, namespace=self, prefix=prefix)
-    
+    """ 
     def get_namespace(self, datatype, value):
         context = get_context()
         # language
