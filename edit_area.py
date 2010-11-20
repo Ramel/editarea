@@ -40,33 +40,48 @@ class EAWidget(Widget):
     """It's an EditArea Widget, for file code edit, used for edit the CSS here,
     see: <http://www.cdolivet.com>"""
 
-    template = list(XMLParser("""${ea}""", stl_namespaces))
+    #template = list(XMLParser("""${ea}""", stl_namespaces))
 
-    ea_template = '/ui/edit_area/ea.xml'
-    ea_scripts = ['/ui/edit_area/edit_area_full.js']
+    template = '/ui/edit_area/ea.xml'
+    scripts = ['/ui/edit_area/edit_area_full.js']
 
     # Configuration
     width = 610
     height = 340
-
-
+    readonly = False
+    """
     def get_available_edit_area_languages(self, context):
         here = context.resource
         dir = here.get_resource('/ui/edit_area/langs')
         return [ lang[:-3] for lang in dir.get_names() ]
+    """
 
-
+    def ea_language(self):
+        path = get_abspath('ui/edit_area/langs')
+        languages = [ x[:-3] for x in lfs.get_names(path) ]
+        return get_context().accept_language.select_language(languages)
+    
+    """
     def get_template(self, datatype, value):
         context = get_context()
         handler = context.root.get_resource(self.ea_template)
         return handler.events
-
-
+    """
+    def get_prefix(self):
+        context = get_context()
+        here = context.resource.get_abspath()
+        prefix = here.get_pathto(self.template)
+        return prefix
+    
+    def render(self):
+         prefix = self.get_prefix()
+         template = self.get_template()
+         return stl(events=template, namespace=self, prefix=prefix)
+    
     def get_namespace(self, datatype, value):
         context = get_context()
         # language
-        #site_root = context.site_root
-        edit_area_languages = self.get_available_edit_area_languages(context)
+        edit_area_languages = self.ea_languages(context)
         accept = context.accept_language
         current_language = accept.select_language(edit_area_languages)
 
@@ -90,6 +105,6 @@ ea_widget = EAWidget('data', title=MSG(u'Body'))
 
 
 
-# Register skin
-path = get_abspath('ui/edit_area')
-register_skin('edit_area', path)
+## Register skin
+#path = get_abspath('ui/edit_area')
+#register_skin('edit_area', path)

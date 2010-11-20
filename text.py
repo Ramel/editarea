@@ -21,11 +21,10 @@ from itools.datatypes import String
 from ikaaro.registry import register_resource_class
 from ikaaro.text import CSS as BaseCSS
 from ikaaro.text_views import Text_Edit
-from ikaaro.forms import timestamp_widget
+from ikaaro.autoform import timestamp_widget
 from ikaaro.file_views import File_Edit
 
 from edit_area import ea_widget
-
 
 
 ############################################################
@@ -37,14 +36,18 @@ class CSS_Edit(Text_Edit):
     the WYSIWYG tinyMCE (that cannot edit source directly as far as I known
     [Armel])."""
 
-    schema = merge_dicts(File_Edit.schema, data=String)
+    def _get_schema(self, resource, context):
+        schema = File_Edit._get_schema(self, resource, context)
+        return merge_dicts(schema, data=String)
+
+    #schema = merge_dicts(File_Edit.schema, data=String)
+    #print("schema = %s" % schema)
 
     widgets = [
         timestamp_widget,
         ea_widget]
 
     title = "Edit CSS file"
-
 
 
 class CSS(BaseCSS):
