@@ -23,11 +23,11 @@ from itools.core import get_version
 # Import from ikaaro
 from ikaaro.skins import register_skin
 
+# Import from editarea
 from text import CSS
 
 # The version
 __version__ = get_version()
 
 # Register skin
-path = get_abspath('ui')
-register_skin('editarea', path)
+register_skin('editarea', get_abspath('ui'))

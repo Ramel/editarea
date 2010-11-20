@@ -40,9 +40,6 @@ class CSS_Edit(Text_Edit):
         schema = File_Edit._get_schema(self, resource, context)
         return merge_dicts(schema, data=String)
 
-    #schema = merge_dicts(File_Edit.schema, data=String)
-    #print("schema = %s" % schema)
-
     widgets = [
         timestamp_widget,
         ea_widget]
@@ -51,9 +48,8 @@ class CSS_Edit(Text_Edit):
 
 
 class CSS(BaseCSS):
-    
-    edit = CSS_Edit()
 
+    edit = CSS_Edit()
 
 
 # Overwrite class for 'text/css'

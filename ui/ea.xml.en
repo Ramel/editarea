@@ -23,7 +23,6 @@
   </noscript>
 
   <!-- Gets replaced with EditArea -->
-  <textarea id="${id}" name="${form_name}" rows="15" cols="82">${source}</textarea>
+  <textarea id="${id}" name="${name}" rows="15" cols="82">${value}</textarea>
 
 </stl:block>
-
